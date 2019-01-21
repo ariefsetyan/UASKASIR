@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.arief.uaskasir.EditKaryawan;
 import com.example.arief.uaskasir.R;
 
 import java.util.List;
@@ -35,16 +36,17 @@ public class RecycleAdapter extends RecyclerView.Adapter<ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
-        Karyawan samplekaryawan = karyawans.get(i);
-        ids = String.valueOf(samplekaryawan.id);
+        final Karyawan samplekaryawan = karyawans.get(i);
+//        ids = String.valueOf(samplekaryawan.id);
         viewHolder.nama.setText(samplekaryawan.nama);
         viewHolder.nomer.setText(samplekaryawan.nomer);
         viewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ids = String.valueOf(samplekaryawan.id);
                 Toast.makeText(context, "item "+ ids, Toast.LENGTH_SHORT).show();
-//                intent = new Intent(context,DetilSupplier.class);
-//                context.startActivity(intent);
+                intent = new Intent(context,EditKaryawan.class);
+                context.startActivity(intent);
 
             }
         });

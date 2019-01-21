@@ -35,8 +35,8 @@ public class MasterActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if (CustomGridViewActivity[i] == "Barang"){
-//                    Intent barang = new Intent(MasterActivity.this,SupplierActivity.class);
-//                    startActivity(barang);
+                    Intent barang = new Intent(MasterActivity.this,BarangActivity.class);
+                    startActivity(barang);
                 }else if (CustomGridViewActivity[i]=="Karyawan"){
                     Intent intentKaryawan = new Intent(MasterActivity.this,KaryawanActivity.class);
                     startActivity(intentKaryawan);

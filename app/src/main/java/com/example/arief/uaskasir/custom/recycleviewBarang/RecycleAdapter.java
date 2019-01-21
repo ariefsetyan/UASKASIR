@@ -1,62 +1,62 @@
-package com.example.arief.uaskasir.custom.recycleviewSupplier;
+package com.example.arief.uaskasir.custom.recycleviewBarang;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.arief.uaskasir.DetilSupplier;
+import com.example.arief.uaskasir.BarangActivity;
+import com.example.arief.uaskasir.EditBarangActivity;
 import com.example.arief.uaskasir.R;
-import com.example.arief.uaskasir.custom.RecycleviewKaryawan.Karyawan;
 
 import java.util.List;
 
 public class RecycleAdapter extends RecyclerView.Adapter<ViewHolder> {
-    private List<Supplier> suppliers;
+    private List<Barang> barangs;
     private Context context;
     public static String ids;
+    public static String idbarang;
+    public static String hargaj;
     public static Intent intent;
-//    AlertDialog.Builder dialog;
-//    List<Supplier> itemList = new ArrayList<Supplier>();
 
-    public RecycleAdapter(Context context, List<Supplier> suppliers) {
-        this.suppliers = suppliers;
+    public RecycleAdapter(Context context, List<Barang> samplebarang) {
+        this.barangs = samplebarang;
         this.context = context;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycle_item,viewGroup,false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycle_item_b,viewGroup,false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
-        final Supplier samplesupplier = suppliers.get(i);
-//        ids = String.valueOf(samplesupplier.id);
-        viewHolder.nama.setText(samplesupplier.nama);
-        viewHolder.nomer.setText(samplesupplier.nomer);
+        final Barang samplebarang = barangs.get(i);
+//        ids = String.valueOf(samplebarang.id);
+        hargaj = String.valueOf(samplebarang.hargajual);
+//        Log.e("harga",hargaj);
+        viewHolder.nama.setText(samplebarang.nama);
+        viewHolder.harga.setText(hargaj);
         viewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ids = String.valueOf(samplesupplier.id);
-                Toast.makeText(context, "item"+ ids, Toast.LENGTH_SHORT).show();
-                intent = new Intent(context,DetilSupplier.class);
+                idbarang = String.valueOf(samplebarang.id);
+                Toast.makeText(context, "id "+ idbarang, Toast.LENGTH_SHORT).show();
+                intent = new Intent(context,EditBarangActivity.class);
                 context.startActivity(intent);
-
             }
         });
-
-
     }
 
     @Override
     public int getItemCount() {
-        return suppliers.size();
+        return barangs.size();
     }
 }

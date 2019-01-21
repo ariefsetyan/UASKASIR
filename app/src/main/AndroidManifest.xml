@@ -27,7 +27,11 @@
         <activity android:name=".FormSupplierActivity" />
         <activity android:name=".DetilSupplier" />
         <activity android:name=".FormKaryawanAktivity" />
-        <activity android:name=".KaryawanActivity"></activity>
+        <activity android:name=".KaryawanActivity" />
+        <activity android:name=".FormBarangActivity" />
+        <activity android:name=".BarangActivity" />
+        <activity android:name=".EditBarangActivity" />
+        <activity android:name=".EditKaryawan"></activity>
     </application>
 
 </manifest>
